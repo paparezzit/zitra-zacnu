@@ -3,7 +3,16 @@
     "allow": [
       "Bash(ssh -T git@github.com)",
       "Bash(sips --version)",
-      "Bash(sips -g pixelWidth -g pixelHeight /Users/martinres/Desktop/zitra-zacnu/images/gallery/foto-01.jpg)"
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/martinres/Desktop/zitra-zacnu/images/gallery/foto-01.jpg)",
+      "Bash(GIT_TERMINAL_PROMPT=0 git push origin main)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(pip3 show:*)",
+      "Bash(brew list:*)",
+      "Bash(brew install:*)",
+      "Bash(git filter-repo:*)",
+      "Bash(git remote:*)",
+      "Bash(git push:*)",
+      "Bash(ls /Users/martinres/Desktop/zitra-zacnu/images/gallery/*.jpg /Users/martinres/Desktop/zitra-zacnu/images/gallery/*.jpeg /Users/martinres/Desktop/zitra-zacnu/images/gallery/*.png)"
     ]
   }
 }

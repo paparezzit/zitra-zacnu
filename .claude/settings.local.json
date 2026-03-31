@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ssh -T git@github.com)"
+      "Bash(ssh -T git@github.com)",
+      "Bash(sips --version)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/martinres/Desktop/zitra-zacnu/images/gallery/foto-01.jpg)"
     ]
   }
 }

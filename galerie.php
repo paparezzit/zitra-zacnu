@@ -5,13 +5,24 @@ $activePage = 'galerie';
 require 'includes/header.php';
 
 // Fotogalerie — přidej sem cesty k obrázkům
+// 'src' = náhled (thumbs/, max 1200px), 'full' = originál pro lightbox
 $photos = [
-    // ['src' => '/images/gallery/foto-01.jpg', 'alt' => 'Popis fotky'],
+    ['src' => '/images/gallery/thumbs/foto-01.jpg', 'full' => '/images/gallery/foto-01.jpg', 'alt' => ''],
+    ['src' => '/images/gallery/thumbs/foto-02.jpg', 'full' => '/images/gallery/foto-02.jpg', 'alt' => ''],
+    ['src' => '/images/gallery/thumbs/foto-03.jpg', 'full' => '/images/gallery/foto-03.jpg', 'alt' => ''],
+    ['src' => '/images/gallery/thumbs/foto-04.jpg', 'full' => '/images/gallery/foto-04.jpg', 'alt' => ''],
+    ['src' => '/images/gallery/thumbs/foto-05.jpg', 'full' => '/images/gallery/foto-05.jpg', 'alt' => ''],
+    ['src' => '/images/gallery/thumbs/foto-06.jpg', 'full' => '/images/gallery/foto-06.jpg', 'alt' => ''],
+    ['src' => '/images/gallery/thumbs/foto-07.jpg', 'full' => '/images/gallery/foto-07.jpg', 'alt' => ''],
+    ['src' => '/images/gallery/thumbs/foto-08.jpg', 'full' => '/images/gallery/foto-08.jpg', 'alt' => ''],
+    ['src' => '/images/gallery/thumbs/foto-09.jpg', 'full' => '/images/gallery/foto-09.jpg', 'alt' => ''],
+    ['src' => '/images/gallery/thumbs/foto-10.jpg', 'full' => '/images/gallery/foto-10.jpg', 'alt' => ''],
 ];
 
-// Zúčtenky — přidej sem cesty k obrázkům účtenek
 $zuctenky = [
-    // ['src' => '/images/zuctenky/zuctenka-01.jpg', 'alt' => 'Zúčtenka č. 1'],
+    ['src' => '/images/zuctenky/zuctenka-01.png', 'alt' => 'Zúčtenka č. 1'],
+    ['src' => '/images/zuctenky/zuctenka-02.png', 'alt' => 'Zúčtenka č. 2'],
+    ['src' => '/images/zuctenky/zuctenka-03.png', 'alt' => 'Zúčtenka č. 3'],
 ];
 ?>
 
@@ -26,7 +37,7 @@ $zuctenky = [
         <?php if (!empty($photos)): ?>
         <div class="photo-grid">
             <?php foreach ($photos as $photo): ?>
-            <div class="photo-grid__item">
+            <div class="photo-grid__item" data-full="<?= htmlspecialchars($photo['full']) ?>">
                 <img src="<?= htmlspecialchars($photo['src']) ?>" alt="<?= htmlspecialchars($photo['alt']) ?>" loading="lazy">
             </div>
             <?php endforeach; ?>
@@ -49,5 +60,12 @@ $zuctenky = [
     </div>
 
 </main>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" aria-modal="true" role="dialog">
+    <button class="lightbox__btn lightbox__close" aria-label="Zavřít">✕</button>
+    <button class="lightbox__btn lightbox__prev" aria-label="Předchozí">←</button>
+    <button class="lightbox__btn lightbox__next" aria-label="Další">→</button>
+    <img class="lightbox__img" src="" alt="">
+</div>
 
 <?php require 'includes/footer.php'; ?>

@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "dev": "npx browser-sync start --proxy 'localhost:8888' --files '**/*.php, css/*.css, js/*.js'"
+  }
+}

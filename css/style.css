@@ -1,25 +1,8 @@
 /*
  * Zítra začnu! — Vánoční festival zlozvyků
- *
- * Fonty:
- *   Anton Regular  → Google Fonts (načteno v header.php)
- *   Neue Haas Grotesk → komerční font, přidej @font-face níže
- *
- * @font-face {
- *     font-family: 'Neue Haas Grotesk';
- *     src: url('../fonts/NHaasGroteskTXPro-55Rg.woff2') format('woff2');
- *     font-weight: 400;
- *     font-style: normal;
- * }
- * @font-face {
- *     font-family: 'Neue Haas Grotesk';
- *     src: url('../fonts/NHaasGroteskTXPro-75Bd.woff2') format('woff2');
- *     font-weight: 700;
- *     font-style: normal;
- * }
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url("https://use.typekit.net/eku5byn.css");
 
 /* ── Variables ───────────────────────────────── */
 
@@ -47,6 +30,8 @@ body {
     background: var(--black);
     color: var(--white);
     font-family: var(--font-body);
+    font-weight: 500;
+    line-height: 1.3;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -56,20 +41,43 @@ body {
 .nav {
     position: fixed;
     top: 0;
+    left: 0;
     right: 0;
     z-index: 100;
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.25rem;
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s ease;
+}
+
+.nav--scrolled {
+    background: var(--black);
+}
+
+.nav__logo {
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transition: color 0.15s ease;
+}
+
+.nav__logo:hover {
+    color: var(--red);
+}
+
+.nav__links {
+    display: flex;
+    gap: 1.25rem;
 }
 
 .nav__link {
     color: var(--white);
     text-decoration: none;
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.875rem;
-    letter-spacing: 0.06em;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
     text-transform: uppercase;
     transition: color 0.15s ease;
 }
@@ -116,36 +124,41 @@ body {
 
 .hero__mute svg {
     display: block;
-    width: 2rem;
-    height: 2rem;
+    width: 4rem;
+    height: 4rem;
     fill: var(--white);
+}
+
+/* ── About hero image ────────────────────────── */
+
+.about-hero {
+    width: 100%;
+    height: 85vh;
+    background: var(--black) url('/images/about-hero.jpg') center center / cover no-repeat;
 }
 
 /* ── About section (red) ─────────────────────── */
 
 .about {
     background: var(--red);
-    padding: 4rem 2rem 2rem;
+    padding: 3rem 1.25rem 2rem;
 }
 
 .about__inner {
-    max-width: 760px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .about__title {
     font-family: var(--font-display);
-    font-size: clamp(3.5rem, 11vw, 7.5rem);
-    line-height: 0.92;
+    font-size: clamp(3.5rem, 11vw, 4rem);
     color: var(--white);
     text-transform: uppercase;
-    margin-bottom: 0.6rem;
 }
 
 .about__subtitle {
-    font-family: var(--font-body);
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
     font-weight: 700;
-    font-size: clamp(0.8rem, 1.8vw, 1rem);
-    letter-spacing: 0.08em;
     color: var(--white);
     text-transform: uppercase;
     margin-bottom: 2.5rem;
@@ -159,7 +172,6 @@ body {
 
 .about__body p {
     font-size: clamp(0.9rem, 1.4vw, 1rem);
-    line-height: 1.65;
     color: var(--white);
 }
 
@@ -167,21 +179,16 @@ body {
 
 .credits {
     background: var(--red);
-    padding: 8rem 2rem 3rem;
+    padding: 5rem 1.25rem 2.5rem;
 }
 
-.credits__list {
-    max-width: 760px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
+.credits__list{
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .credits__list p {
     font-size: 0.7rem;
-    line-height: 1.55;
-    color: var(--white);
-    opacity: 0.8;
 }
 
 /* ── Gallery page ────────────────────────────── */
@@ -190,16 +197,13 @@ body {
     background: var(--black);
 }
 
-/* Tab navigation (top left) */
+/* Tab navigation */
 
 .gallery-tabs {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    padding: 1.5rem 2rem;
+    padding: 2rem 1.25rem 0;
     display: flex;
-    gap: 2rem;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
 }
 
 .gallery-tabs__btn {
@@ -207,10 +211,8 @@ body {
     border: none;
     cursor: pointer;
     color: var(--white);
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.875rem;
-    letter-spacing: 0.06em;
+    font-family: var(--font-display);
+    font-size: 1rem;
     text-transform: uppercase;
     padding: 0;
     transition: color 0.15s ease;
@@ -224,7 +226,8 @@ body {
 /* Tab content */
 
 .gallery-content {
-    padding-top: 4.5rem;
+    padding: 1.25rem;
+    margin-bottom: 3rem;
 }
 
 .tab-panel {
@@ -235,33 +238,38 @@ body {
     display: block;
 }
 
-/* Photo grid — CSS columns masonry */
+/* ── Photo grid — editorial CSS grid ─────────── */
 
 .photo-grid {
-    columns: 3;
-    column-gap: 3px;
-    padding: 3px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
 }
 
 .photo-grid__item {
-    break-inside: avoid;
-    margin-bottom: 3px;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .photo-grid__item img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.2s ease;
 }
 
-/* Zúčtenky grid */
+.photo-grid__item:hover img {
+    opacity: 0.8;
+}
+
+/* ── Zúčtenky grid ───────────────────────────── */
 
 .zuctenky-grid {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4rem;
-    padding: 3rem 1rem;
+    gap: 2px;
 }
 
 .zuctenky-grid img {
@@ -280,36 +288,103 @@ body {
     font-size: 0.9rem;
 }
 
+/* ── Lightbox ─────────────────────────────────── */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.96);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.is-open {
+    display: flex;
+}
+
+.lightbox__img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+.lightbox__btn {
+    position: absolute;
+    background: none;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    padding: 1rem;
+    opacity: 0.6;
+    transition: opacity 0.15s ease;
+    line-height: 1;
+    font-family: var(--font-display);
+}
+
+.lightbox__btn:hover {
+    opacity: 1;
+}
+
+.lightbox__close {
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    letter-spacing: 0;
+}
+
+.lightbox__prev,
+.lightbox__next {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+}
+
+.lightbox__prev { left: 0.5rem; }
+.lightbox__next { right: 0.5rem; }
+
 /* ── Responsive ──────────────────────────────── */
 
-@media (max-width: 900px) {
+@media (min-width: 640px) {
     .photo-grid {
-        columns: 2;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 30vw;
     }
 }
 
-@media (max-width: 640px) {
-    .nav,
-    .gallery-tabs {
-        padding: 1rem 1.25rem;
-        gap: 1.25rem;
-    }
-
-    .about {
-        padding: 3rem 1.25rem 2rem;
-    }
-
-    .credits {
-        padding: 5rem 1.25rem 2.5rem;
+@media (min-width: 900px) {
+    html {
+        font-size: 30px;
     }
 
     .photo-grid {
-        columns: 1;
-        padding: 0;
-        column-gap: 0;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 22vw;
     }
 
-    .photo-grid__item {
-        margin-bottom: 2px;
+    .photo-grid__item:nth-child(3) {
+        grid-column: 2 / span 2;
+        grid-row: 1 / span 2;
+    }
+
+    .photo-grid__item:nth-child(7){
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+
+    .credits {
+        padding: 10rem 1.25rem 2.5rem;
+    }
+
+    .credits__list p {
+        font-size: 0.5rem;
+    }
+
+    .zuctenky-grid img{
+        max-width: 640px;
     }
 }

@@ -17,6 +17,14 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/.gitignore" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/.gitignore",
+      "oF" : 0
+    },
     "\/about.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -380,6 +388,17 @@
       "oA" : 0,
       "oAP" : "\/index.php",
       "oF" : 0
+    },
+    "\/js\/main-min.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 1,
+      "oAP" : "\/js\/main-min-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
     },
     "\/js\/main.js" : {
       "bF" : 0,

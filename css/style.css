@@ -1,0 +1,315 @@
+/*
+ * Zítra začnu! — Vánoční festival zlozvyků
+ *
+ * Fonty:
+ *   Anton Regular  → Google Fonts (načteno v header.php)
+ *   Neue Haas Grotesk → komerční font, přidej @font-face níže
+ *
+ * @font-face {
+ *     font-family: 'Neue Haas Grotesk';
+ *     src: url('../fonts/NHaasGroteskTXPro-55Rg.woff2') format('woff2');
+ *     font-weight: 400;
+ *     font-style: normal;
+ * }
+ * @font-face {
+ *     font-family: 'Neue Haas Grotesk';
+ *     src: url('../fonts/NHaasGroteskTXPro-75Bd.woff2') format('woff2');
+ *     font-weight: 700;
+ *     font-style: normal;
+ * }
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+/* ── Variables ───────────────────────────────── */
+
+:root {
+    --red:         #BE0000;
+    --black:       #000000;
+    --white:       #ffffff;
+    --font-display: 'Anton', sans-serif;
+    --font-body:   'Neue Haas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* ── Reset ───────────────────────────────────── */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Navigation ──────────────────────────────── */
+
+.nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.5rem 2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav__link {
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.15s ease;
+}
+
+.nav__link:hover,
+.nav__link--active {
+    color: var(--red);
+}
+
+/* ── Hero video ──────────────────────────────── */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--black);
+}
+
+.hero__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero__mute {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    z-index: 10;
+    opacity: 0.85;
+    transition: opacity 0.15s ease;
+}
+
+.hero__mute:hover {
+    opacity: 1;
+}
+
+.hero__mute svg {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    fill: var(--white);
+}
+
+/* ── About section (red) ─────────────────────── */
+
+.about {
+    background: var(--red);
+    padding: 4rem 2rem 2rem;
+}
+
+.about__inner {
+    max-width: 760px;
+}
+
+.about__title {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 11vw, 7.5rem);
+    line-height: 0.92;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+
+.about__subtitle {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: clamp(0.8rem, 1.8vw, 1rem);
+    letter-spacing: 0.08em;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+}
+
+.about__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.about__body p {
+    font-size: clamp(0.9rem, 1.4vw, 1rem);
+    line-height: 1.65;
+    color: var(--white);
+}
+
+/* ── Credits / footer ────────────────────────── */
+
+.credits {
+    background: var(--red);
+    padding: 8rem 2rem 3rem;
+}
+
+.credits__list {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.credits__list p {
+    font-size: 0.7rem;
+    line-height: 1.55;
+    color: var(--white);
+    opacity: 0.8;
+}
+
+/* ── Gallery page ────────────────────────────── */
+
+.page-galerie {
+    background: var(--black);
+}
+
+/* Tab navigation (top left) */
+
+.gallery-tabs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 1.5rem 2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.gallery-tabs__btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0;
+    transition: color 0.15s ease;
+}
+
+.gallery-tabs__btn:hover,
+.gallery-tabs__btn--active {
+    color: var(--red);
+}
+
+/* Tab content */
+
+.gallery-content {
+    padding-top: 4.5rem;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel--active {
+    display: block;
+}
+
+/* Photo grid — CSS columns masonry */
+
+.photo-grid {
+    columns: 3;
+    column-gap: 3px;
+    padding: 3px;
+}
+
+.photo-grid__item {
+    break-inside: avoid;
+    margin-bottom: 3px;
+}
+
+.photo-grid__item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Zúčtenky grid */
+
+.zuctenky-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    padding: 3rem 1rem;
+}
+
+.zuctenky-grid img {
+    max-width: 420px;
+    width: 100%;
+    display: block;
+}
+
+/* Placeholder text */
+
+.gallery-placeholder {
+    padding: 6rem 2rem;
+    text-align: center;
+    color: var(--white);
+    opacity: 0.4;
+    font-size: 0.9rem;
+}
+
+/* ── Responsive ──────────────────────────────── */
+
+@media (max-width: 900px) {
+    .photo-grid {
+        columns: 2;
+    }
+}
+
+@media (max-width: 640px) {
+    .nav,
+    .gallery-tabs {
+        padding: 1rem 1.25rem;
+        gap: 1.25rem;
+    }
+
+    .about {
+        padding: 3rem 1.25rem 2rem;
+    }
+
+    .credits {
+        padding: 5rem 1.25rem 2.5rem;
+    }
+
+    .photo-grid {
+        columns: 1;
+        padding: 0;
+        column-gap: 0;
+    }
+
+    .photo-grid__item {
+        margin-bottom: 2px;
+    }
+}

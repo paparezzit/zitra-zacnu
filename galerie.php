@@ -37,11 +37,13 @@ $photos = [
     ['src' => '/images/gallery/thumbs/27.jpg', 'full' => '/images/gallery/27.jpg', 'alt' => ''],
 ];
 
-$zuctenky = [
-    ['src' => '/images/zuctenky/zuctenka-01.png', 'alt' => 'Zúčtenka č. 1'],
-    ['src' => '/images/zuctenky/zuctenka-02.png', 'alt' => 'Zúčtenka č. 2'],
-    ['src' => '/images/zuctenky/zuctenka-03.png', 'alt' => 'Zúčtenka č. 3'],
-];
+$zuctenkyFiles = glob(__DIR__ . '/images/zuctenky/zuctenka-*.png');
+usort($zuctenkyFiles, fn($a, $b) => (int) filter_var($a, FILTER_SANITIZE_NUMBER_INT) <=> (int) filter_var($b, FILTER_SANITIZE_NUMBER_INT));
+$zuctenky = array_map(fn($f) => [
+    'src' => '/images/zuctenky/' . basename($f),
+    'alt' => 'Zúčtenka č. ' . filter_var(basename($f), FILTER_SANITIZE_NUMBER_INT),
+], $zuctenkyFiles);
+
 ?>
 
 <div class="gallery-tabs">

@@ -794,6 +794,19 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/images\/logo.png" : {
+      "ft" : 32768,
+      "iS" : 79517,
+      "oA" : 0,
+      "oAP" : "\/images\/logo.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 90,
+      "rq" : 75
+    },
     "\/images\/zuctenky\/zuctenka-3.png" : {
       "ft" : 32768,
       "iS" : 210537,

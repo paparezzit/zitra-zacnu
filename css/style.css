@@ -133,7 +133,7 @@ body {
     position: absolute;
     width: 90px;
     left: 20px;
-    top: 50px;
+    top: 10px;
 }
 
 .hero__logo img{
@@ -407,6 +407,6 @@ body {
     .hero__logo{
         width: 170px;
         left: 30px;
-        top: 90px;
+        top: 20px;
     }
 }
